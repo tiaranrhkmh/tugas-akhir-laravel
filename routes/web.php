@@ -23,5 +23,3 @@ Auth::routes();
 
 Route::get('/home', 'BookReturnController@index');
 Route::get('/home/{book}', 'BookReturnController@show');
-
-Route::get(/)

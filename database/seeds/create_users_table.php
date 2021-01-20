@@ -17,6 +17,8 @@ class create_users_table extends Seeder
                 'username'=>'tiaran',
                 'name'=>'Tiara Tiara',
                 'NIM'=>'1101174232',
+                'Jurusan/Fakultas'=>'S1 Teknik Telekomunikasi / FTE',
+                'Angkatan'=>'2017',
                 'email'=>'tiaranrhkmh@gmail.com',
                 'email_verified_at'=> '2021-01-17 16:55:59',
                 'password'=>bcrypt('Nurhikmah23.')
@@ -25,6 +27,8 @@ class create_users_table extends Seeder
                 'username'=>'tsasabita',
                 'name'=>'Tsabita Al-Asshifa Hadi Kusuma',
                 'NIM'=>'1101174100',
+                'Jurusan/Fakultas'=>'S1 Teknik Telekomunikasi / FTE',
+                'Angkatan'=>'2017',
                 'email'=>'tsasabita@gmail.com',
                 'email_verified_at'=>'2021-01-16 15:00:00',
                 'password'=>bcrypt('Gadang22.')

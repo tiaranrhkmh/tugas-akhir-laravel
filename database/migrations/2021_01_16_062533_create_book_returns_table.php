@@ -17,10 +17,10 @@ class CreateBookReturnsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('NIM')->unique();
             $table->string('name')->unique();
-            $table->string('Jurusan/Fakultas')->index();
-            $table->string('Angkatan')->index();
-            $table->string('token')->unique();
+            $table->string('Jurusan/Fakultas');
+            $table->string('Angkatan');
             $table->string('Barcode')->unique();
+            $table->string('snap_token')->nullable();
             $table->string('Info_Buku')->nullable();
             $table->datetime('Tanggal_Peminjaman');
             $table->datetime('Tanggal_Pengembalian');

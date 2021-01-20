@@ -15,6 +15,9 @@ class book_returns_TableSeeder extends Seeder
         DB::table('book_returns')->insert([
             [
             'NIM'=>'1101174232',
+            'name'=>'Tiara',
+            'Jurusan/Fakultas'=>'S1 Teknik Telekomunikasi / FTE',
+            'Angkatan'=>'2017',
             'Barcode'=> '1234567890',
             'Info_Buku'=> 'Buku Pertama',
             'Tanggal_Peminjaman'=>'2021-01-10 16:55:59',
@@ -22,6 +25,9 @@ class book_returns_TableSeeder extends Seeder
             'Jumlah_Denda'=> '25000'
             ],[
             'NIM'=>'1101174100',
+            'name'=>'Tsabita Al-Ashifa Hadi Kusuma',
+            'Jurusan/Fakultas'=>'S1 Teknik Telekomunikasi/ FTE',
+            'Angkatan'=>'2017',
             'Barcode'=> 'UIBJ8328942',
             'Info_Buku'=> 'Buku Kedua',
             'Tanggal_Peminjaman'=>'2021-01-08 16:55:59',

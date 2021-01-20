@@ -18,12 +18,11 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();
             $table->string('name');
             $table->string('NIM')->unique();
-            $table->string('Jurusan/Fakultas')->unique();
-            $table->string('Angkatan')->index();
+            $table->string('Jurusan/Fakultas');
+            $table->string('Angkatan');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at');
             $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
         });
     }
