@@ -23,3 +23,7 @@ Auth::routes();
 
 Route::get('/home', 'BookReturnController@index');
 Route::get('/home/{book}', 'BookReturnController@show');
+Route::post('payments/notification', 'PaymentController@notification');
+Route::get('payments/finish', 'PaymentController@finish');
+Route::get('payments/failed', 'PaymentController@failed');
+Route::get('payments/unfinish', 'PaymentController@unfinish');

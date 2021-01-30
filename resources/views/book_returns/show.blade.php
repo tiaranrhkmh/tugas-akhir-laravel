@@ -16,7 +16,7 @@
                           <p>{{$book->Tanggal_Pengembalian}}</p>
                           <p>{{$book->Jumlah_Denda}}</p>
                           <p>
-                            <button class="btn btn-success btn-sm" type="submit">Complete Payment</button>
+                            <a href="{{ $book->payment_url }}">Proceed to payment</a>
                           </p>
                       </li>
                     </ul>
@@ -25,41 +25,4 @@
         </div>
     </div>
 </div>
-<script src="{{
-    !config('services.midtrans.isProduction') ? 'https://app.sandbox.midtrans.com/snap/snap.js' : 'https://app.midtrans.com/snap/snap.js' }}"
-    data-client-key="{{ config('services.midtrans.clientKey')
-}}"></script>
-<script>
-    $("book_list").submit(function(event) {
-        event.preventDefault();
-        $.post("/api/book_return", {
-            _method: 'POST',
-            _token: '{{ csrf_token() }}',
-            NIM: $('input#donor_name').val(),
-
-            Barcode: $('input#donor_email').val(),
-            Info_Buku: $('select#donation_type').val(),
-            amount: $('input#amount').val(),
-            note: $('textarea#note').val(),
-        },
-        function (data, status) {
-            console.log(data);
-            snap.pay(data.snap_token, {
-                // Optional
-                onSuccess: function (result) {
-                    location.reload();
-                },
-                // Optional
-                onPending: function (result) {
-                    location.reload();
-                },
-                // Optional
-                onError: function (result) {
-                    location.reload();
-                }
-            });
-            return false;
-        });
-    })
-</script>
 @endsection
