@@ -153,7 +153,7 @@
                                                 <thead>
                                                     <tr>
                                                         <th>ID_Pembayaran</th>
-                                                        <th>Tanggal_Pemmbayaran</th>
+                                                        <th>Tanggal_Pembayaran</th>
                                                         <th>Status</th>
                                                     </tr>
                                                 </thead>
