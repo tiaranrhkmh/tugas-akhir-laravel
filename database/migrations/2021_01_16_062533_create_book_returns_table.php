@@ -15,18 +15,22 @@ class CreateBookReturnsTable extends Migration
     {
         Schema::create('book_returns', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id');
+            $table->integer('book_id');
+            $table->string('ID_Pembayaran')->nullable();
             $table->integer('NIM');
             $table->string('name');
-            $table->string('Jurusan/Fakultas');
+            $table->string('Jurusan_Fakultas');
             $table->string('Angkatan');
-            $table->string('Barcode')->unique();
+            $table->string('Barcode');
+            $table->string('updated_at')->nullable();
             $table->string('payment_token')->nullable();
             $table->string('payment_url')->nullable();
-            $table->string('updated_at')->nullable();
             $table->string('Info_Buku')->nullable();
             $table->datetime('Tanggal_Peminjaman');
             $table->datetime('Tanggal_Pengembalian');
             $table->decimal('Jumlah_Denda',16,2)->default(0);
+
         });
     }
 

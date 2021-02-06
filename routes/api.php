@@ -13,7 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->post('/home', function (Request $request) {
     return $request->user();
 });
-Route::post('home/{book}', 'BookReturnController@show')->name('book_return.show');

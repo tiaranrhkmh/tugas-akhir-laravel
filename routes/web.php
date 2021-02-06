@@ -15,15 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function(){
+    return view('welcome');
+});
 Auth::routes();
+Route::get('/login','AuthController@login')->name('login');
+Route::post('/login','AuthController@postlogin')->name('postlogin');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home/book', 'BookReturnController@index');
+    Route::get('payments/notification', 'PaymentController@notification');
+    Route::get('payments/finish', 'PaymentController@finish');
+    Route::get('payments/failed', 'PaymentController@failed');
+    Route::get('payments/unfinish', 'PaymentController@unfinish');
+    Route::get('/home/book/{id}', 'BookReturnController@show')->name('book');
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'BookReturnController@index');
-Route::get('/home/{book}', 'BookReturnController@show');
-Route::post('payments/notification', 'PaymentController@notification');
-Route::get('payments/finish', 'PaymentController@finish');
-Route::get('payments/failed', 'PaymentController@failed');
-Route::get('payments/unfinish', 'PaymentController@unfinish');

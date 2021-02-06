@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddStatusToPaymentsTable extends Migration
+class Book extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class AddStatusToPaymentsTable extends Migration
      */
     public function up()
     {
-        Schema::table('payments', function (Blueprint $table) {
-            //
-            $table->string('status')->after('method')->nullable();
+        Schema::create('books', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('Barcode')->nullable();
+            $table->string('updated_at')->nullable();
+            $table->string('Info_Buku')->nullable();
+
         });
     }
 
@@ -26,9 +29,7 @@ class AddStatusToPaymentsTable extends Migration
      */
     public function down()
     {
-        Schema::table('payments', function (Blueprint $table) {
-            //
-            $table->dropColumn('status');
-        });
+        //
+        Schema::dropIfExists('books');
     }
 }
