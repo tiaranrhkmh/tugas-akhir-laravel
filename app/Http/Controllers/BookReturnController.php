@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use AktivitasPembayaran;
 use App\RiwayatPembayaran;
 use book_return;
 use Auth;
@@ -18,8 +19,12 @@ class BookReturnController extends Controller
         $this->initPaymentGateway();
         $buku=Auth::user()->book_returns;
         $data_buku=$buku[$id];
-        $data_buku->ID_Pembayaran = $data_buku->Barcode.'/'.$data_buku->Tanggal_Pengembalian.'/'.$data_buku->NIM.'/'.$data_buku->Jumlah_Denda;
+        $data_buku->ID_Pembayaran = $data_buku->Barcode.'/'.$data_buku->Tanggal_Pengembalian.'/'.$data_buku->NIM;
         $data_buku->save();
+        $aktivitas= new AktivitasPembayaran;
+        $aktivitas->ID_Pembayaran = $data_buku->ID_Pembayaran;
+        $aktivitas->Jumlah_Denda = $data_buku->Jumlah_Denda;
+        $aktivitas->save();
         $customerDetails =[
             'first_name' =>Auth::user()->name,
             'last_name'=>Auth::user()->NIM,
