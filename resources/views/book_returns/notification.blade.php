@@ -16,16 +16,16 @@
                                 <thead>
                                     <tr>
                                         <th>ID_Pembayaran</th>
-                                        <th>Tanggal_Pemmbayaran</th>
+                                        <th>Tanggal_Pembayaran</th>
                                         <th>Status</th>
                                         <th>Tanggal Pengembalian</th>
                                     </tr>
                                 </thead>
                             <tbody>
                                         <tr>
-                                            <td>{{ $riwayat->ID_Pembayaran}}</td>
-                                            <td>{{ $riwayat->updated_at }}</td>
-                                            <td>{{ $riwayat->status }}</td>
+                                            <td>{{ $riwayat1->ID_Pembayaran}}</td>
+                                            <td>{{ $riwayat1->updated_at }}</td>
+                                            <td>{{ $riwayat1->status }}</td>
                                             <td>
                                                 <a class="badge badge-secondary" href="{{'/home'}}">Kembali</a>
                                             </td>

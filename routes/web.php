@@ -23,10 +23,11 @@ Route::get('/login','AuthController@login')->name('login');
 Route::post('/login','AuthController@postlogin')->name('postlogin');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home/book', 'BookReturnController@index');
-    Route::post('payments/notification', 'PaymentController@notification');
+    Route::get('/home/book/{id}', 'BookReturnController@show')->name('book');
     Route::get('payments/finish', 'PaymentController@finish');
     Route::get('payments/failed', 'PaymentController@failed');
     Route::get('payments/unfinish', 'PaymentController@unfinish');
-    Route::get('/home/book/{id}', 'BookReturnController@show')->name('book');
 });
+Route::post('payments/notification', 'PaymentController@notification');
+
 
